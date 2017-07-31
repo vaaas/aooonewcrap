@@ -48,12 +48,9 @@ function highlight_new() {
 	const search = strip_page(searchpath())
 	if (search in DATA) {
 		const set = new Set(DATA[search])
-		some(get_works(), work => {
+		foreach(get_works(), work => {
 			if (set.has(work.href)) return true
-			else {
-				highlight(work)
-				return false
-			}
+			else highlight(work)
 		})
 	} else {
 		foreach(get_works(), work => { highlight(work) })
