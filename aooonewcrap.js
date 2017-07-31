@@ -1,6 +1,15 @@
+// ==UserScript==
+// @name aooonewcrap
+// @namespace http://archiveofourown.org/
+// @version 1.0
+// @description highlights new works
+// @author Vas
+// @match http://archiveofourown.org/works/search?*
+// ==/UserScript==
+
 // jshint asi: true
 // jshint esversion: 6
-function main() {
+(function() {
 "use strict"
 
 let DATA = {}
@@ -75,9 +84,6 @@ function main() {
 			update_cache()
 	}
 }
-
-main()
-
-}
-
-window.addEventListener("load", main)
+if (document.readyState === "complete") main()
+else window.addEventListener("load", main)
+})()
